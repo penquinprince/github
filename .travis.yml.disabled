@@ -1,0 +1,19 @@
+dist: 'xenial'
+language: Python
+python: 
+  - "3.7"
+
+install:
+  - pip install flake8 timeout-decorator
+
+matrix:
+  include:
+  - env: SCRIPT='python -m unittest exercises.tests.test101.Test101'
+  - env: SCRIPT='python -m unittest exercises.tests.test101.TestEven'
+  - env: SCRIPT='python -m unittest exercises.tests.test101.TestConcatenadd'
+  - env: SCRIPT='python -m unittest exercises.tests.test101.TestCfColor'
+  - env: SCRIPT='python -m unittest exercises.tests.test101.TestCollatz'
+  - env: SCRIPT=flake8 --config=jenkins/flake8.ini exercises
+
+script:
+  - $SCRIPT

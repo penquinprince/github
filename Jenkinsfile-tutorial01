@@ -1,0 +1,5 @@
+@Library('secrettests@master') _
+
+node { 
+    week1()
+}
